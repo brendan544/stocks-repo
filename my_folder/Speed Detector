@@ -1,21 +1,21 @@
 Function calculateDemeritPoints(speed) {
-    const speedLimit = 70;
+    const SpeedLimit = 70;
     const kmPerDemeritPoint = 5;
     
-    if (speed <= speedLimit) {
+    if (speed <= SpeedLimit) {
         console.log("Ok");
-        return 0; // No demerit points if speed is within limit
+        return 0; 
     } else {
-        // Calculate demerit points
-        const excessSpeed = speed - speedLimit;
-        const demeritPoints = Math.floor(excessSpeed / kmPerDemeritPoint);
+       
+        const excess speed = speed - SpeedLimit;
+        const demerit points = Math.floor(excess speed / kmPerDemeritPoint);
         
         console.log(`Driver gets ${demeritPoints} demerit point(s).`);
-        return demeritPoints;
+        return demerit points;
     }
 }
 
-// Example usage
-const speed = 80; // You can change this value to test different speeds
+
+const speed = 80;
 const totalDemeritPoints = calculateDemeritPoints(speed);
 console.log(`Total demerit points: ${totalDemeritPoints}`);
