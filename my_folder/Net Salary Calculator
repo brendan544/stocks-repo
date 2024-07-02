@@ -1,60 +1,58 @@
 function calculateNetSalary(basicSalary, benefits) {
-    // Constants for tax brackets and rates
-    const taxBrackets = [
+
+    const TaxBrackets = [
         { min: 0, max: 24000, rate: 0.1 },
         { min: 24001, max: 32333, rate: 0.25 },
         { min: 32334, max: 40467, rate: 0.3 },
         { min: 40468, max: Infinity, rate: 0.35 }
     ];
 
-    // Constants for NHIF and NSSF deductions
-    const nhifRate = 0.01; // 1% of basic salary
-    const nssfRate = 0.06; // 6% of basic salary
+    const nhifRate = 0.01; 
+    const nssfRate = 0.06; 
 
-    // Calculate gross salary
     const grossSalary = basicSalary + benefits;
 
-    // Calculate NHIF deduction
-    const nhifDeduction = basicSalary * nhifRate;
+    
+    const nhifDeduction = BasicSalary * NhifRate;
 
-    // Calculate NSSF deduction
-    const nssfDeduction = basicSalary * nssfRate;
+   
+    const nssfDeduction = BasicSalary * nssfRate;
 
-    // Calculate taxable income (gross salary - NHIF - NSSF)
-    const taxableIncome = grossSalary - nhifDeduction - nssfDeduction;
+    
+    const TaxableIncome = GrossSalary - nhifDeduction - nssfDeduction;
 
-    // Calculate PAYE (tax)
+  
     let tax = 0;
-    for (let bracket of taxBrackets) {
-        if (taxableIncome > bracket.min) {
-            const taxableInThisBracket = Math.min(bracket.max - bracket.min, taxableIncome - bracket.min + 1);
+    for (let bracket of TaxBrackets) {
+        if (TaxableIncome > bracket.min) {
+            const taxableInThisBracket = Math.min(bracket.max - bracket.min, Taxable Income - bracket.min + 1);
             tax += taxableInThisBracket * bracket.rate;
         } else {
             break;
         }
     }
 
-    // Calculate net salary
-    const netSalary = grossSalary - tax - nhifDeduction - nssfDeduction;
+   
+    const NetSalary = GrossSalary - tax - nhifDeduction - nssfDeduction;
 
-    // Prepare and return results
+    
     const results = {
-        grossSalary: grossSalary,
+        GrossSalary: grossSalary,
         nhifDeduction: nhifDeduction,
         nssfDeduction: nssfDeduction,
         tax: tax,
-        netSalary: netSalary
+        NetSalary: NetSalary
     };
 
     return results;
 }
 
-// Example usage
-const basicSalary = 60000; // Example basic salary
-const benefits = 10000;    // Example benefits
+
+const basicSalary = 60000; 
+const benefits = 10000;   
 const salaryDetails = calculateNetSalary(basicSalary, benefits);
 
-// Display results
+
 console.log(`Gross Salary: ${salaryDetails.grossSalary}`);
 console.log(`NHIF Deduction: ${salaryDetails.nhifDeduction}`);
 console.log(`NSSF Deduction: ${salaryDetails.nssfDeduction}`);
