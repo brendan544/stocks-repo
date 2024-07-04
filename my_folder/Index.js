@@ -6,7 +6,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-
+// Function to  prompt user for input
 function prompt(question) {
     return new Promise((resolve) => {
         rl.question(question, (answer) => {
@@ -15,13 +15,14 @@ function prompt(question) {
     });
 }
 
-
+// display alert messages
 function alert(message) {
     console.log(message);
 }
 
 async function calculateGrade() {
     let marks;
+    // Loop until valid marks are entered
     while (true) {
         let input = await prompt("Enter student marks (0-100): ");
         marks = parseInt(input);
@@ -31,7 +32,7 @@ async function calculateGrade() {
             alert("Marks should be a number between 0 and 100. Please try again.");
         }
     }
-
+    // Determine grade based on marks
     let grade;
     if (marks > 79) {
         grade = "A";
@@ -44,9 +45,9 @@ async function calculateGrade() {
     } else {
         grade = "E";
     }
-
+   // Display the grade
     alert(`For ${marks} marks, the grade is ${grade}`);
-
+  // Close the readline interface
     rl.close
 }
 

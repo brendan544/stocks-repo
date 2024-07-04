@@ -1,3 +1,4 @@
+//Function to prompt user
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -11,7 +12,7 @@ function calculateDemeritPoints(speed) {
     
     if (speed <= SpeedLimit) {
         console.log("Ok");
-        return 0; 
+        return 0; // No demerit points if speed is within limi
     } else {
         // Calculate the excess speed
         const excessSpeed = speed - SpeedLimit;
@@ -27,3 +28,5 @@ function calculateDemeritPoints(speed) {
 const speed = 80;
 const totalDemeritPoints = calculateDemeritPoints(speed);
 console.log(`Total demerit points: ${totalDemeritPoints}`);
+
+

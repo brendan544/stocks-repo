@@ -6,13 +6,14 @@ const rl = readline.createInterface({
 });
 
 function calculateNetSalary(basicSalary, benefits) {
+    // Tax brackets with corresponding rates
     const TaxBrackets = [
         { min: 0, max: 24000, rate: 0.1 },
         { min: 24001, max: 32333, rate: 0.25 },
         { min: 32334, max: 40467, rate: 0.3 },
         { min: 40468, max: Infinity, rate: 0.35 }
     ];
-
+    // NHIF and NSSF rates
     const nhifRate = 0.01;
     const nssfRate = 0.06;
 
@@ -48,8 +49,8 @@ function calculateNetSalary(basicSalary, benefits) {
 }
 
 
-const basicSalary = 60000; 
-const benefits = 10000;   
+const basicSalary = 4000; 
+const benefits = 30000;   
 const salaryDetails = calculateNetSalary(basicSalary, benefits);
 
 console.log(`Gross Salary: ${salaryDetails.grossSalary}`);
