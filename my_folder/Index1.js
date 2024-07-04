@@ -25,7 +25,7 @@ function calculateNetSalary(basicSalary, benefits) {
     let tax = 0;
     for (let bracket of TaxBrackets) {
         if (TaxableIncome > bracket.min) {
-            const taxableInThisBracket = Math.min(bracket.max - bracket.min, Taxable Income - bracket.min + 1);
+            const taxableInThisBracket = Math.min(bracket.max - bracket.min, TaxableIncome - bracket.min + 1);
             tax += taxableInThisBracket * bracket.rate;
         } else {
             break;
