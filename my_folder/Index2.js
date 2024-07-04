@@ -1,4 +1,11 @@
-Function calculateDemeritPoints(speed) {
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function calculateDemeritPoints(speed) {
     const SpeedLimit = 70;
     const kmPerDemeritPoint = 5;
     
@@ -6,15 +13,16 @@ Function calculateDemeritPoints(speed) {
         console.log("Ok");
         return 0; 
     } else {
-       
-        const excess speed = speed - SpeedLimit;
-        const demerit points = Math.floor(excess speed / kmPerDemeritPoint);
+        // Calculate the excess speed
+        const excessSpeed = speed - SpeedLimit;
+        
+        // Calculate demerit points based on excess speed
+        const demeritPoints = Math.floor(excessSpeed / kmPerDemeritPoint);
         
         console.log(`Driver gets ${demeritPoints} demerit point(s).`);
-        return demerit points;
+        return demeritPoints;
     }
 }
-
 
 const speed = 80;
 const totalDemeritPoints = calculateDemeritPoints(speed);
